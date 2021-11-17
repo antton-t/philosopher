@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct.h                                           :+:      :+:    :+:   */
+/*   ft_get_time.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/13 16:57:39 by antton-t          #+#    #+#             */
-/*   Updated: 2021/11/17 17:28:18 by antton-t         ###   ########.fr       */
+/*   Created: 2021/11/17 17:32:08 by antton-t          #+#    #+#             */
+/*   Updated: 2021/11/17 17:57:59 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCT_H
-# define STRUCT_H
+#include "philo.h"
 
-typedef struct p_eater
+long long	ft_get_time_of_start(void)
 {
-	t_philo	*philo;
-}		t_eater;
+	long long	time_out;
+	struct timeval	time;
 
-typedef	struct	p_philo
-{
-	int	size;
-	int	nb_philo;
-	int	time_to_eat;
-	int	time_to_sleep;
-	int	num_must_eat;
-	long long	time;
-	t_eater	*eater;
-}		t_philo;
+	gettimeofday(&time, NULL);
+	time_out = time.tv_sec * 1000 + time.tv_usec;
+	return (time_out);
+}
 
-#endif

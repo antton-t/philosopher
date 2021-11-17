@@ -1,32 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct.h                                           :+:      :+:    :+:   */
+/*   ft_start_dinner.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/13 16:57:39 by antton-t          #+#    #+#             */
-/*   Updated: 2021/11/17 17:28:18 by antton-t         ###   ########.fr       */
+/*   Created: 2021/11/17 14:57:15 by antton-t          #+#    #+#             */
+/*   Updated: 2021/11/17 15:22:04 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCT_H
-# define STRUCT_H
+#include "philo.h"
 
-typedef struct p_eater
+void	ft_start_dinner(t_philo philo)
 {
-	t_philo	*philo;
-}		t_eater;
-
-typedef	struct	p_philo
-{
-	int	size;
-	int	nb_philo;
-	int	time_to_eat;
-	int	time_to_sleep;
-	int	num_must_eat;
-	long long	time;
-	t_eater	*eater;
-}		t_philo;
-
-#endif
+	
+}
