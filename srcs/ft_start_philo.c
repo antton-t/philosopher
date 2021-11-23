@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 15:52:55 by antton-t          #+#    #+#             */
-/*   Updated: 2021/11/23 16:10:00 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/11/23 18:27:58 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,6 @@ void	ft_start_philo(char **argv, int argc)
 		philo.num_must_eat = ft_atoi(argv[5]);
 	philo.size = argc;
 	philo.time = ft_get_time_of_start();
-	ft_start_dinner(philo);
+	if (ft_start_dinner(philo) == 0)
+		ft_free(philo);
 }

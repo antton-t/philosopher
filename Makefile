@@ -6,12 +6,12 @@
 #    By: antton-t <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/13 13:05:00 by antton-t          #+#    #+#              #
-#    Updated: 2021/11/23 13:40:30 by antton-t         ###   ########.fr        #
+#    Updated: 2021/11/23 19:44:30 by antton-t         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
-CC = clang
+CC = gcc
 HEAD = -Iincludes
 CFLAGS = -Wall -Wextra $(DEBUG)
 #  DEBUG = -fsanitize=address -g3
@@ -19,6 +19,7 @@ CFLAGS = -Wall -Wextra $(DEBUG)
 FILES = main.c ft_atoi.c ft_check_parse_argv.c \
 				ft_print.c ft_get_time.c \
 				ft_start_dinner.c ft_start_philo.c \
+				ft_free.c \
 				
 SRC_PATH = $(shell find srcs -type d)
 vpath %.c $(foreach dir, $(SRC_PATH), $(dir))
