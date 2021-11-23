@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 13:05:09 by antton-t          #+#    #+#             */
-/*   Updated: 2021/11/13 16:52:04 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/11/23 13:45:42 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main(int argc, char **argv)
 {
-	if argc != 5 || argc != 6)
+	if (argc != 5 || argc != 6)
 	{
 		printf("Error arguments \n");
 		return (0);
@@ -26,7 +26,7 @@ int main(int argc, char **argv)
 			printf("Error parsing argument\n");
 			return (0);
 		}
-		ft_start_philo(argv)
+		ft_start_philo(argv, argc);
 	}
 	return (0);
 }

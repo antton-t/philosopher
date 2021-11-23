@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 20:58:52 by antton-t          #+#    #+#             */
-/*   Updated: 2021/11/13 21:01:01 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/11/23 13:56:26 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,21 @@ int	ft_atoi(char *str)
 	int sign;
 	int	i;
 
-	i -= 0;
+	i = 0;
 	sign = 1;
+	nb = 0;
 
+	while (str[i] == ' ' || str[i] == '\t')
+		i++;
+	if (str[i] == '-')
+	{
+		sign = -1;
+		i++;
+	}
+	while ((str[i] >= '0' && str[i] <= '9'))
+	{
+		nb = nb * 10 + (str[i] - '0');
+		i++;
+	}
+	return (nb * sign);
 }

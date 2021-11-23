@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 15:52:55 by antton-t          #+#    #+#             */
-/*   Updated: 2021/11/17 18:03:35 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/11/22 17:53:26 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@ t_philo	init_philo(void)
 {
 	t_philo	out;
 
+	out = malloc(sizeof(t_philo));
+	if (out == NULL)
+		ft_print(3);
 	out.size = 0;
 	out.nb_philo = 0;
 	out.time_to_eat = 0;
