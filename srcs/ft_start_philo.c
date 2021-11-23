@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 15:52:55 by antton-t          #+#    #+#             */
-/*   Updated: 2021/11/22 17:53:26 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/11/23 16:10:00 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,13 @@ t_philo	init_philo(void)
 {
 	t_philo	out;
 
-	out = malloc(sizeof(t_philo));
-	if (out == NULL)
-		ft_print(3);
 	out.size = 0;
 	out.nb_philo = 0;
 	out.time_to_eat = 0;
 	out.time_to_sleep = 0;
+	out.time_to_die = 0;
 	out.num_must_eat = -1;
+	return (out);
 }
 
 void	ft_start_philo(char **argv, int argc)
@@ -35,12 +34,13 @@ void	ft_start_philo(char **argv, int argc)
 	j = 0;
 	i = 1;
 	philo = init_philo();
-	out.nb_philo = ft_atoi(argv[1]);
-	out.time_to_eat = ft_atoi(argv[2]);
-	out.time_to_sleep = ft_atoi(argv[3]);
-	if (argc == 5)
-		out.num_must_eat = ft_atoi(argv[4]);
-	phio.size = argc;
+	philo.nb_philo = ft_atoi(argv[1]);
+	philo.time_to_die = ft_atoi(argv[2]);
+	philo.time_to_eat = ft_atoi(argv[3]);
+	philo.time_to_sleep = ft_atoi(argv[4]);
+	if (argc == 6)
+		philo.num_must_eat = ft_atoi(argv[5]);
+	philo.size = argc;
 	philo.time = ft_get_time_of_start();
 	ft_start_dinner(philo);
 }

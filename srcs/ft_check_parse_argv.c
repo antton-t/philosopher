@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 15:53:34 by antton-t          #+#    #+#             */
-/*   Updated: 2021/11/13 16:44:53 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/11/23 16:09:02 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,15 @@ int	ft_check_parse_argv(char **argv)
 
 	i = 1;
 	j = 0;
-	while (argv[i][j])
+	while (argv[i])
 	{
 		j = 0;
 		while (argv[i][j])
 		{
-			if (argv[i][j] >= '0' && argv[i][j]) <= '9')
-				i++;
+			if (argv[i][j] >= '0' && argv[i][j] <= '9')
+				j++;
 			else
 				return (0);
-			j++;
 		}
 		i++;
 	}
