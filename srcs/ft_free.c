@@ -6,13 +6,13 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 17:31:14 by antton-t          #+#    #+#             */
-/*   Updated: 2021/11/23 17:36:43 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/11/24 16:59:20 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	ft_free(t_philo philo)
+void	ft_free(t_philo *philo)
 {
 	
 }

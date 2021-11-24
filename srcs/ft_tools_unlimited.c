@@ -1,39 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct.h                                           :+:      :+:    :+:   */
+/*   ft_tools_unlimited.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/13 16:57:39 by antton-t          #+#    #+#             */
-/*   Updated: 2021/11/24 19:11:47 by antton-t         ###   ########.fr       */
+/*   Created: 2021/11/24 19:44:59 by antton-t          #+#    #+#             */
+/*   Updated: 2021/11/24 19:45:54 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCT_H
-# define STRUCT_H
+#include "philo.h"
 
-typedef struct	p_ophi
+void	ft_even_unlimited(t_philo *philo)
 {
-	int				alive;
-	int				id_philo;
-	pthread_mutex_t	fork_left;
-	pthread_mutex_t	fork_right;
-	long long		action_time;
-	pthread_mutex_t	fork;
-	int				meal_left;
 
-}		t_ophi;
-typedef	struct	p_philo
+}
+
+void	ft_odd_unlimited(t_philo *philo)
 {
-	int	size;
-	int	nb_philo;
-	int	time_to_eat;
-	int	time_to_die;
-	int	time_to_sleep;
-	int	num_must_eat;
-	long long	time;
-	t_ophi	*phi;
-}		t_philo;
 
-#endif
+}
