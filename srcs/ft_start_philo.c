@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 15:52:55 by antton-t          #+#    #+#             */
-/*   Updated: 2021/11/24 19:52:17 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/11/25 16:46:14 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int	ft_init_philo(t_philo **philo)
 		(*philo)->phi[i].id_philo = i + 1;
 		(*philo)->phi[i].alive = 1;
 		(*philo)->phi[i].meal_left = (*philo)->num_must_eat;
-		pthread_mutex_init(&((*philo)->phi[i].fork), NULL);
 		pthread_mutex_init(&((*philo)->phi[i].fork_left), NULL);
 		pthread_mutex_init(&((*philo)->phi[i].fork_right), NULL);
 		i++;
