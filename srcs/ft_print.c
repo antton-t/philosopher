@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 14:30:29 by antton-t          #+#    #+#             */
-/*   Updated: 2021/11/29 11:36:18 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/11/30 19:31:59 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,25 +22,25 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-int	ft_print_s(t_philo philo, int i, int id)
+int	ft_print_s(t_ophi *philo, int i)
 {
 	long long	ti;
-
-	ti = philo.time - philo.phi[id].action_time;
-	printf("%lld %i ",ti, philo.phi[id].id_philo);
+	pthread_mutex_lock(&philo->unite->print);
+	ti =  /*philo->action_time*/ 0 - philo->unite->time;
 	if (i == 0)
-		write(1, "has taken a fork\n", 17);
+		printf("%lld %i has take a fork\n",ti, philo->id_philo);
 	if (i == 1)
-		write(1, "is eating\n", 10);
+		printf("%lld %i is eating\n",ti, philo->id_philo);
 	if (i == 2)
-		write (1, "is sleeping\n", 12);
+		printf("%lld %i is sleeping\n",ti, philo->id_philo);
 	if (i == 3)
-		write (1, "is thinking\n", 12);
+		printf("%lld %i is thinking\n",ti, philo->id_philo);
 	if (i == 4)
 	{
-		write(1, "died\n", 5);
+		printf("%lld %i died",ti, philo->id_philo);
 		return (1);
 	}
+	pthread_mutex_unlock(&philo->unite->print);
 	return (0);
 }
 

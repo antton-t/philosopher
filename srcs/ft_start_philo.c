@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 15:52:55 by antton-t          #+#    #+#             */
-/*   Updated: 2021/11/29 19:12:30 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/11/30 19:50:04 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,17 @@ int	ft_init_philo(t_philo **philo)
 {
 	int	i;
 
+	(*philo)->phi = calloc(sizeof(t_ophi) , (*philo)->nb_philo);
 	i = 0;
 	while (i < (*philo)->nb_philo)
 	{
-		(*philo)->phi = calloc(sizeof(t_ophi) , (*philo)->nb_philo);
 		if ((*philo)->phi == NULL)
 			return (0);
 		(*philo)->phi[i].id_philo = i + 1;
 		(*philo)->phi[i].alive = 1;
 		(*philo)->phi[i].meal_left = (*philo)->num_must_eat;
+		(*philo)->phi[i].action_time = 0;
+		(*philo)->phi[i].last_food_time = 0;
 		pthread_mutex_init(&((*philo)->phi[i].fork_left), NULL);
 		if (i != 0 && i != ((*philo)->nb_philo) - 1)
 			(*philo)->phi[i].fork_right = &((*philo)->phi[i - 1].fork_left);

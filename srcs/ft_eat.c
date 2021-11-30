@@ -1,32 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_time.c                                      :+:      :+:    :+:   */
+/*   ft_eat.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 17:32:08 by antton-t          #+#    #+#             */
-/*   Updated: 2021/11/30 20:07:36 by antton-t         ###   ########.fr       */
+/*   Created: 2021/11/30 18:21:08 by antton-t          #+#    #+#             */
+/*   Updated: 2021/11/30 18:22:45 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	ft_get_action_time(t_ophi **philo)
+int	ft_go_eat(t_ophi *philo)
 {
-	struct timeval	time;
 
-	gettimeofday(&time, NULL);
-	(*philo)->action_time = time.tv_sec * 1000 + time.tv_usec;
-	return ;
+	return (0);
 }
-long long	ft_get_time_of_start(void)
-{
-	long long	time_out;
-	struct timeval	time;
-
-	gettimeofday(&time, NULL);
-	time_out = time.tv_sec * 1000 + time.tv_usec;
-	return (time_out);
-}
-
