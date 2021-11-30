@@ -6,26 +6,32 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 16:57:39 by antton-t          #+#    #+#             */
-/*   Updated: 2021/11/24 19:11:47 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/11/29 19:13:00 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_H
 # define STRUCT_H
 
+struct p_philo;
+
 typedef struct	p_ophi
 {
 	int				alive;
 	int				id_philo;
 	pthread_mutex_t	fork_left;
-	pthread_mutex_t	fork_right;
+	pthread_mutex_t	*fork_right;
+	long long		last_food_time;
 	long long		action_time;
-	pthread_mutex_t	fork;
 	int				meal_left;
+	pthread_t		phifi;
+	struct p_philo			*unite;
 
 }		t_ophi;
 typedef	struct	p_philo
 {
+	pthread_mutex_t	print;
+	pthread_mutex_t dead;
 	int	size;
 	int	nb_philo;
 	int	time_to_eat;

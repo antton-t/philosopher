@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 14:57:15 by antton-t          #+#    #+#             */
-/*   Updated: 2021/11/26 15:33:07 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/11/29 19:13:02 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 void	*ft_eatting(void *arg)
 {
-	t_philo	*philo;
+	t_ophi	*philo;
 
-	philo = (t_philo *)arg;
+	philo = (t_ophi *)arg;
+	
 
 	return (NULL);
 }
@@ -28,8 +29,15 @@ void	ft_pthread_create(t_philo *philo)
 	i = 0;
 	while (i < philo->nb_philo)
 	{
-		pthread_create(&philo->phi[i].phifi, NULL, ft_eatting, (void *)philo);
-		i++;	
+		pthread_create(&philo->phi[i].phifi, NULL, ft_eatting, (void *)philo->phi[i]);
+		i += 2;	
+	}
+	i = 1;
+	usleep(2);
+	while (i < philo->nb_philo)
+	{
+		pthread_create(&philo->phi[i].phifi, NULL, ft_eatting, (void *)philo->phi[i]);
+		i += 2;	
 	}
 }
 
