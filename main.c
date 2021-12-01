@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 13:05:09 by antton-t          #+#    #+#             */
-/*   Updated: 2021/11/23 17:29:57 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/12/01 13:58:45 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ int main(int argc, char **argv)
 			return (0);
 		}
 		ft_start_philo(argv, argc);
+		while (1)
+		{
+
+		}
 	}
 	else
 		printf("Error arguments \n");

@@ -6,7 +6,7 @@
 #    By: antton-t <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/13 13:05:00 by antton-t          #+#    #+#              #
-#    Updated: 2021/11/30 18:24:09 by antton-t         ###   ########.fr        #
+#    Updated: 2021/12/01 19:54:50 by antton-t         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,8 @@ FILES = main.c ft_atoi.c ft_check_parse_argv.c \
 				ft_print.c ft_get_time.c \
 				ft_start_dinner.c ft_start_philo.c \
 				ft_free.c ft_sleep.c ft_eat.c\
+				ft_check_alive.c ft_tools.c ft_itoa.c\
+				ft_death.c \
 				
 SRC_PATH = $(shell find srcs -type d)
 vpath %.c $(foreach dir, $(SRC_PATH), $(dir))

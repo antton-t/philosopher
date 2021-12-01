@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 14:57:15 by antton-t          #+#    #+#             */
-/*   Updated: 2021/11/30 20:07:38 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/12/01 21:09:16 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,28 @@ void	*eatting(void *arg)
 	t_ophi	*philo;
 
 	philo = (t_ophi *)arg;
-	while (philo->meal_left != 0 || philo->alive != 0)
+	usleep(100);
+	philo->last_food_time = ft_get_time_of_start();
+	while (philo->meal_left != 0 && philo->unite->alive != 0)
 	{
-		if (ft_go_eat(philo) == 1)
-			;
-		if (ft_go_sleep(philo) == 1)
-			;
-		if (philo->alive == 1 && philo->meal_left != 0)
+		if (philo->id_philo % 2 == 0)
 		{
-			ft_get_action_time(&philo);
-			ft_print_s(philo, 3);
+			if (ft_go_eat_even(philo) == 1)
+				philo->unite->alive = 0;
 		}
+		if (philo->id_philo % 2 == 1)
+		{
+			if (ft_go_eat_odd(philo) == 1 && philo->unite->alive != 0)
+				philo->unite->alive = 0;
+		}
+printf("alive philo %i\n",philo->unite->alive);
+		if (ft_go_sleep(philo) == 0 && philo->unite->alive != 0)
+			philo->unite->alive = 0;
+	}
+	if (philo->unite->alive == 0)
+	{
+		philo->action_time = ft_get_time_of_start();
+		ft_print_s(philo, 3);
 	}
 	return (NULL);
 }
@@ -43,11 +54,11 @@ void	ft_pthread_create(t_philo *philo)
 		i += 2;	
 	}
 	i = 1;
-	usleep(2);
 	while (i < philo->nb_philo)
 	{
 		pthread_create(&philo->phi[i].phifi, NULL, eatting, &philo->phi[i]);
-		i += 2;	
+		i += 2;
+		usleep(10);
 	}
 }
 

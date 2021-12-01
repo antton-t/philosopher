@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 15:52:55 by antton-t          #+#    #+#             */
-/*   Updated: 2021/11/30 19:50:04 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/12/01 19:47:38 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	ft_init_philo(t_philo **philo)
 		if ((*philo)->phi == NULL)
 			return (0);
 		(*philo)->phi[i].id_philo = i + 1;
-		(*philo)->phi[i].alive = 1;
 		(*philo)->phi[i].meal_left = (*philo)->num_must_eat;
 		(*philo)->phi[i].action_time = 0;
 		(*philo)->phi[i].last_food_time = 0;
@@ -31,7 +30,7 @@ int	ft_init_philo(t_philo **philo)
 		if (i != 0 && i != ((*philo)->nb_philo) - 1)
 			(*philo)->phi[i].fork_right = &((*philo)->phi[i - 1].fork_left);
 		if (i == ((*philo)->nb_philo) - 1)
-			(*philo)->phi[i].fork_right = &((*philo)->phi[0].fork_left);
+			(*philo)->phi[i].fork_right = &((*philo)->phi[i - 1].fork_left);
 		(*philo)->phi[i].unite = (*philo);
 		i++;
 	}
@@ -44,6 +43,7 @@ t_philo	*init_philo(char **argv)
 
 	out = malloc(sizeof(t_philo));
 	out->size = 0;
+	out->alive = 1;
 	out->nb_philo = ft_atoi(argv[1]);
 	out->time_to_eat = ft_atoi(argv[3]);
 	out->time_to_sleep = ft_atoi(argv[4]);

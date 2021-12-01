@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_time.c                                      :+:      :+:    :+:   */
+/*   ft_tools.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 17:32:08 by antton-t          #+#    #+#             */
-/*   Updated: 2021/12/01 19:11:04 by antton-t         ###   ########.fr       */
+/*   Created: 2021/12/01 16:45:06 by antton-t          #+#    #+#             */
+/*   Updated: 2021/12/01 19:24:28 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	ft_get_action_time(t_ophi **philo)
+void	ft_usleep(t_ophi *philo, int i)
 {
-	struct timeval	time;
+	long long	tmp;
+	long long	tmp2;
+	long long	tmp3;
+	long long	time_ref;
 
-	gettimeofday(&time, NULL);
-	(*philo)->action_time = time.tv_sec * 1000 + time.tv_usec /1000;
-	return ;
+	tmp2 = 0;
+	time_ref = ft_get_time_of_start();
+	if (i == 1)
+		tmp = philo->unite->time_to_eat;
+	if (i == 2)
+		tmp = philo->unite->time_to_sleep;
+	while (tmp2 < tmp)
+	{
+		tmp3 = ft_get_time_of_start();
+		tmp2 = tmp3 - time_ref;
+		usleep(900);
+	}
 }
-long long	ft_get_time_of_start(void)
-{
-	long long	time_out;
-	struct timeval	time;
-
-	gettimeofday(&time, NULL);
-	time_out = time.tv_sec * 1000 + time.tv_usec / 1000;
-	return (time_out);
-}
-

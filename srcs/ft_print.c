@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: antton-t <antton-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 14:30:29 by antton-t          #+#    #+#             */
-/*   Updated: 2021/11/30 19:31:59 by antton-t         ###   ########.fr       */
+/*   Created: 2021/12/01 19:44:33 by antton-t          #+#    #+#             */
+/*   Updated: 2021/12/01 19:44:38 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,13 @@ int	ft_strlen(char *str)
 		i++;
 	return (i);
 }
-
 int	ft_print_s(t_ophi *philo, int i)
 {
 	long long	ti;
+
+	ti = 0;
 	pthread_mutex_lock(&philo->unite->print);
-	ti =  /*philo->action_time*/ 0 - philo->unite->time;
+	ti =  philo->action_time - philo->unite->time;
 	if (i == 0)
 		printf("%lld %i has take a fork\n",ti, philo->id_philo);
 	if (i == 1)
