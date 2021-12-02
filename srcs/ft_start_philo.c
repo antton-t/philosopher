@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 15:52:55 by antton-t          #+#    #+#             */
-/*   Updated: 2021/12/01 19:47:38 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/12/02 18:51:06 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_init_philo(t_philo **philo)
 {
 	int	i;
 
-	(*philo)->phi = calloc(sizeof(t_ophi) , (*philo)->nb_philo);
+	(*philo)->phi = calloc(sizeof(t_ophi), (*philo)->nb_philo);
 	i = 0;
 	while (i < (*philo)->nb_philo)
 	{
@@ -25,7 +25,7 @@ int	ft_init_philo(t_philo **philo)
 		(*philo)->phi[i].id_philo = i + 1;
 		(*philo)->phi[i].meal_left = (*philo)->num_must_eat;
 		(*philo)->phi[i].action_time = 0;
-		(*philo)->phi[i].last_food_time = 0;
+		(*philo)->phi[i].last_food_time = ft_get_time_of_start();
 		pthread_mutex_init(&((*philo)->phi[i].fork_left), NULL);
 		if (i != 0 && i != ((*philo)->nb_philo) - 1)
 			(*philo)->phi[i].fork_right = &((*philo)->phi[i - 1].fork_left);
@@ -57,12 +57,11 @@ t_philo	*init_philo(char **argv)
 void	ft_start_philo(char **argv, int argc)
 {
 	t_philo	*philo;
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	j = 0;
 	i = 1;
-
 	philo = init_philo(argv);
 	if (argc == 6)
 		philo->num_must_eat = ft_atoi(argv[5]);

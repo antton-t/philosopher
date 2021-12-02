@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 18:21:08 by antton-t          #+#    #+#             */
-/*   Updated: 2021/12/01 21:04:25 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/12/02 16:44:33 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,44 +16,42 @@ void	ft_eat(t_ophi *philo);
 
 int	ft_go_eat_even(t_ophi *philo)
 {
-	if (ft_check_death(philo) == 1)
-		return (1);
-	if (pthread_mutex_lock(&philo->fork_left) == 0)
+	if (philo->meal_left != 0)
 	{
-		philo->action_time = ft_get_time_of_start();
-		ft_print_s(philo, 0);
-		if (ft_check_death(philo) == 1)
-			return (1);
-		if (pthread_mutex_lock(philo->fork_right) == 0)
+		if (pthread_mutex_lock(&philo->fork_left) == 0)
 		{
-			ft_eat(philo);
-			if (pthread_mutex_unlock(philo->fork_right) != 0)
+			philo->action_time = ft_get_time_of_start();
+			ft_print_s(philo, 0);
+			if (pthread_mutex_lock(philo->fork_right) == 0)
+			{
+				ft_eat(philo);
+				if (pthread_mutex_unlock(philo->fork_right) != 0)
+					return (1);
+			}
+			if (pthread_mutex_unlock(&philo->fork_left) != 0)
 				return (1);
 		}
-		if (pthread_mutex_unlock(&philo->fork_left) != 0)
-			return (1);
 	}
 	return (0);
 }
 
 int	ft_go_eat_odd(t_ophi *philo)
 {
-	if (ft_check_death(philo) == 1)
-		return (1);
-	if (pthread_mutex_lock(philo->fork_right) == 0)
+	if (philo->meal_left != 0)
 	{
-		philo->action_time = ft_get_time_of_start();
-		ft_print_s(philo, 0);
-		if (ft_check_death(philo) == 1)
-			return (1);
-		if (pthread_mutex_lock(&philo->fork_left) == 0)
+		if (pthread_mutex_lock(philo->fork_right) == 0)
 		{
-			ft_eat(philo);
-			if (pthread_mutex_unlock(&philo->fork_left) != 0)
+			philo->action_time = ft_get_time_of_start();
+			ft_print_s(philo, 0);
+			if (pthread_mutex_lock(&philo->fork_left) == 0)
+			{
+				ft_eat(philo);
+				if (pthread_mutex_unlock(&philo->fork_left) != 0)
+					return (1);
+			}
+			if (pthread_mutex_unlock(philo->fork_right) != 0)
 				return (1);
 		}
-		if (pthread_mutex_unlock(philo->fork_right) != 0)
-			return (1);
 	}
 	return (0);
 }
