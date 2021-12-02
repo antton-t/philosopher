@@ -16,10 +16,6 @@ int	ft_check_death(t_ophi *philo)
 {
 	long long	time;
 
-	//mutex	
-	//
-	//mutex	
-
 	time = ft_get_time_of_start();
 	if (time - philo->last_food_time > philo->unite->time_to_die)
 		return (1);

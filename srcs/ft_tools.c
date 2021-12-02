@@ -12,6 +12,12 @@
 
 #include "philo.h"
 
+void	ft_go_think(t_ophi *philo)
+{
+	philo->action_time = ft_get_time_of_start();
+	ft_create_message(philo, 3);
+}
+
 void	ft_usleep(t_ophi *philo, int i)
 {
 	long long	tmp;
@@ -29,6 +35,6 @@ void	ft_usleep(t_ophi *philo, int i)
 	{
 		tmp3 = ft_get_time_of_start();
 		tmp2 = tmp3 - time_ref;
-		usleep(900);
+		usleep(100);
 	}
 }

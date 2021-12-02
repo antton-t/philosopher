@@ -21,7 +21,7 @@ int	ft_go_eat_even(t_ophi *philo)
 		if (pthread_mutex_lock(&philo->fork_left) == 0)
 		{
 			philo->action_time = ft_get_time_of_start();
-			ft_print_s(philo, 0);
+			ft_create_message(philo, 0);
 			if (pthread_mutex_lock(philo->fork_right) == 0)
 			{
 				ft_eat(philo);
@@ -42,7 +42,7 @@ int	ft_go_eat_odd(t_ophi *philo)
 		if (pthread_mutex_lock(philo->fork_right) == 0)
 		{
 			philo->action_time = ft_get_time_of_start();
-			ft_print_s(philo, 0);
+			ft_create_message(philo, 0);
 			if (pthread_mutex_lock(&philo->fork_left) == 0)
 			{
 				ft_eat(philo);
@@ -59,9 +59,9 @@ int	ft_go_eat_odd(t_ophi *philo)
 void	ft_eat(t_ophi *philo)
 {
 	philo->action_time = ft_get_time_of_start();
-	ft_print_s(philo, 0);
+	ft_create_message(philo, 0);
 	ft_get_action_time(&philo);
-	ft_print_s(philo, 1);
+	ft_create_message(philo, 1);
 	philo->last_food_time = philo->action_time;
 	if (philo->unite->size == 6)
 		philo->meal_left --;

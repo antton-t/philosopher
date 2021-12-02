@@ -32,8 +32,7 @@ void	*eatting(void *arg)
 		}
 		if (ft_go_sleep(philo) == 0)
 			philo->unite->alive = 0;
-		if (ft_go_sleep(philo) == 0)
-			philo->unite->alive = 0;
+		ft_go_think(philo);	
 	}
 	return (NULL);
 }

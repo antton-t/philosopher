@@ -15,7 +15,7 @@
 int	ft_go_sleep(t_ophi *philo)
 {
 	philo->action_time = ft_get_time_of_start();
-	ft_print_s(philo, 2);
+	ft_create_message(philo, 2);
 	ft_usleep(philo, 2);
 	return (1);
 }

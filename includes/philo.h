@@ -19,6 +19,7 @@
 # include <pthread.h>
 # include <sys/time.h>
 # include <time.h>
+# include <string.h>
 # include "struct.h"
 
 int				ft_atoi(char *str);
@@ -29,7 +30,7 @@ int				ft_start_dinner(t_philo *philo);
 void			ft_start_philo(char **argv, int argc);
 void			ft_free(t_philo *philo);
 int				ft_strlen(char *str);
-int				ft_print_s(t_ophi *philo, int i);
+void				ft_create_message(t_ophi *philo, int i);
 int				ft_go_sleep(t_ophi *philo);
 int				ft_go_eat_odd(t_ophi *philo);
 int				ft_go_eat_even(t_ophi *philo);
@@ -37,5 +38,6 @@ void			ft_get_action_time(t_ophi **philo);
 int				ft_check_alive(t_philo *philo);
 void			ft_usleep(t_ophi *philo, int i);
 int				ft_check_death(t_ophi *philo);
+void			ft_go_think(t_ophi *philo);
 
 #endif
