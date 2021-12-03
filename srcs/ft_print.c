@@ -6,7 +6,7 @@
 /*   By: antton-t <antton-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:44:33 by antton-t          #+#    #+#             */
-/*   Updated: 2021/12/02 18:46:54 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/12/03 16:02:30 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,8 @@ void	ft_strcat(char *src, char *dest)
 
 void	ft_create_sentence(char *str, int statut, t_ophi *philo, long long time)
 {
-	int	i;
 	int	len;
 
-	i = 0;
 	add_nb(time, str);
 	str[ft_strlen(str)] = ' ';
 	add_nb(philo->id_philo, &str[ft_strlen(str)]);

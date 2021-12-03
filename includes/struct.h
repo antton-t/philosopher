@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 16:57:39 by antton-t          #+#    #+#             */
-/*   Updated: 2021/12/02 18:39:14 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/12/03 16:53:39 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ typedef struct s_ophi
 typedef struct s_philo
 {
 	pthread_mutex_t	print;
-	pthread_mutex_t	dead;
 	int				size;
 	int				nb_philo;
 	int				time_to_eat;

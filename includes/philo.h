@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 13:14:45 by antton-t          #+#    #+#             */
-/*   Updated: 2021/12/02 18:36:10 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/12/03 18:20:20 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ int				ft_start_dinner(t_philo *philo);
 void			ft_start_philo(char **argv, int argc);
 void			ft_free(t_philo *philo);
 int				ft_strlen(char *str);
-void				ft_create_message(t_ophi *philo, int i);
-int				ft_go_sleep(t_ophi *philo);
-int				ft_go_eat_odd(t_ophi *philo);
-int				ft_go_eat_even(t_ophi *philo);
+void			ft_create_message(t_ophi *philo, int i);
+void			ft_go_sleep(t_ophi *philo);
+void			ft_go_eat_odd(t_ophi *philo);
+void			ft_go_eat_even(t_ophi *philo);
 void			ft_get_action_time(t_ophi **philo);
 int				ft_check_alive(t_philo *philo);
 void			ft_usleep(t_ophi *philo, int i);

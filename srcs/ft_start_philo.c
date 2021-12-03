@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 15:52:55 by antton-t          #+#    #+#             */
-/*   Updated: 2021/12/02 18:51:06 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/12/03 16:54:07 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,13 @@ t_philo	*init_philo(char **argv)
 	out->time_to_die = ft_atoi(argv[2]);
 	out->num_must_eat = -1;
 	pthread_mutex_init(&(out->print), NULL);
-	pthread_mutex_init(&(out->dead), NULL);
 	return (out);
 }
 
 void	ft_start_philo(char **argv, int argc)
 {
 	t_philo	*philo;
-	int		i;
-	int		j;
 
-	j = 0;
-	i = 1;
 	philo = init_philo(argv);
 	if (argc == 6)
 		philo->num_must_eat = ft_atoi(argv[5]);

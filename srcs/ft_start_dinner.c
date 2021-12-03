@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 14:57:15 by antton-t          #+#    #+#             */
-/*   Updated: 2021/12/02 18:51:05 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/12/03 19:04:39 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,10 @@ void	*eatting(void *arg)
 	while (philo->meal_left != 0 && philo->unite->alive != 0)
 	{
 		if (philo->id_philo % 2 == 0)
-		{
-			if (ft_go_eat_even(philo) == 1)
-				philo->unite->alive = 0;
-		}
+			ft_go_eat_even(philo);
 		if (philo->id_philo % 2 == 1)
-		{
-			if (ft_go_eat_odd(philo) == 1)
-				philo->unite->alive = 0;
-		}
-		if (ft_go_sleep(philo) == 0)
-			philo->unite->alive = 0;
+			ft_go_eat_odd(philo);
+		ft_go_sleep(philo);
 		ft_go_think(philo);	
 	}
 	return (NULL);
