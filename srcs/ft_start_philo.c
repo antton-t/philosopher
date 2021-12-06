@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 15:52:55 by antton-t          #+#    #+#             */
-/*   Updated: 2021/12/03 16:54:07 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/12/06 15:38:22 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	ft_init_philo(t_philo **philo)
 		(*philo)->phi[i].meal_left = (*philo)->num_must_eat;
 		(*philo)->phi[i].action_time = 0;
 		(*philo)->phi[i].last_food_time = ft_get_time_of_start();
+		(*philo)->phi[i].full = 0;
 		pthread_mutex_init(&((*philo)->phi[i].fork_left), NULL);
 		if (i != 0 && i != ((*philo)->nb_philo) - 1)
 			(*philo)->phi[i].fork_right = &((*philo)->phi[i - 1].fork_left);
@@ -44,6 +45,7 @@ t_philo	*init_philo(char **argv)
 	out = malloc(sizeof(t_philo));
 	out->size = 0;
 	out->alive = 1;
+	out->finish = 0;
 	out->nb_philo = ft_atoi(argv[1]);
 	out->time_to_eat = ft_atoi(argv[3]);
 	out->time_to_sleep = ft_atoi(argv[4]);
@@ -66,5 +68,6 @@ void	ft_start_philo(char **argv, int argc)
 	philo->size = argc;
 	philo->time = ft_get_time_of_start();
 	if (ft_start_dinner(philo) == 0)
-		ft_free(philo);
+		return ;
+		//ft_free(philo);
 }

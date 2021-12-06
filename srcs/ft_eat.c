@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 18:21:08 by antton-t          #+#    #+#             */
-/*   Updated: 2021/12/03 19:08:49 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/12/06 15:24:09 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,10 @@ void	ft_eat(t_ophi *philo)
 	ft_create_message(philo, 1);
 	philo->last_food_time = philo->action_time;
 	if (philo->unite->size == 6)
+	{
 		philo->meal_left --;
+		if (philo->meal_left == 0)
+			philo->full = 1;
+	}
 	ft_usleep(philo, 1);
 }

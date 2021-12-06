@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 14:57:15 by antton-t          #+#    #+#             */
-/*   Updated: 2021/12/03 19:04:39 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/12/06 15:36:57 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@ void	*eatting(void *arg)
 
 	philo = (t_ophi *)arg;
 	usleep(10);
-	while (philo->meal_left != 0 && philo->unite->alive != 0)
+	while (philo->full != 1  && philo->unite->alive != 0)
 	{
 		if (philo->id_philo % 2 == 0)
 			ft_go_eat_even(philo);
 		if (philo->id_philo % 2 == 1)
 			ft_go_eat_odd(philo);
+		if (philo->full == 1)
+			break ;
 		ft_go_sleep(philo);
 		ft_go_think(philo);	
 	}

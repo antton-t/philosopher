@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 16:57:39 by antton-t          #+#    #+#             */
-/*   Updated: 2021/12/03 16:53:39 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/12/06 15:21:27 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_ophi
 	long long		last_food_time;
 	long long		action_time;
 	int				meal_left;
+	int				full;
 	pthread_t		phifi;
 	struct s_philo	*unite;
 
@@ -31,6 +32,7 @@ typedef struct s_philo
 {
 	pthread_mutex_t	print;
 	int				size;
+	int				finish;
 	int				nb_philo;
 	int				time_to_eat;
 	int				time_to_die;
