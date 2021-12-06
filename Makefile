@@ -6,14 +6,14 @@
 #    By: antton-t <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/13 13:05:00 by antton-t          #+#    #+#              #
-#    Updated: 2021/12/06 16:11:58 by antton-t         ###   ########.fr        #
+#    Updated: 2021/12/06 16:30:11 by antton-t         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 CC = gcc
 HEAD = -Iincludes
-CFLAGS = -Wall -Wextra $(DEBUG)
+CFLAGS = -Wall -Wextra -Werror$(DEBUG)
 #DEBUG = -fsanitize=thread -g3
 
 FILES = main.c ft_atoi.c ft_check_parse_argv.c \
