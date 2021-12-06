@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 15:52:55 by antton-t          #+#    #+#             */
-/*   Updated: 2021/12/06 16:21:40 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/12/06 17:04:16 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	ft_init_philo(t_philo **philo)
 		(*philo)->phi[i].last_food_time = ft_get_time_of_start();
 		(*philo)->phi[i].full = 0;
 		pthread_mutex_init(&((*philo)->phi[i].fork_left), NULL);
+		pthread_mutex_init(&((*philo)->phi[i].time), NULL);
 		if (i != 0 && i != ((*philo)->nb_philo) - 1)
 			(*philo)->phi[i].fork_right = &((*philo)->phi[i - 1].fork_left);
 		if (i == ((*philo)->nb_philo) - 1)

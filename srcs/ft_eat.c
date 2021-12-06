@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 18:21:08 by antton-t          #+#    #+#             */
-/*   Updated: 2021/12/06 15:24:09 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/12/06 17:24:14 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,9 @@ void	ft_eat(t_ophi *philo)
 	ft_create_message(philo, 0);
 	ft_get_action_time(&philo);
 	ft_create_message(philo, 1);
+	pthread_mutex_lock(&philo->time);
 	philo->last_food_time = philo->action_time;
+	pthread_mutex_unlock(&philo->time);
 	if (philo->unite->size == 6)
 	{
 		philo->meal_left --;
