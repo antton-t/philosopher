@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 17:31:14 by antton-t          #+#    #+#             */
-/*   Updated: 2021/12/06 16:38:30 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/12/08 11:46:50 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,15 @@ void	ft_free(t_philo *philo)
             i++;
         }
     }
+
     i = 0;
     while (i < philo->nb_philo)
     {
         pthread_mutex_destroy(&(philo)->phi[i].fork_left);
+        pthread_mutex_destroy(&(philo)->phi[i].time);
         i++;
     }
-    ft_free_philo(philo->phi);
+//    ft_free_philo(philo->phi);
     pthread_mutex_destroy(&(philo)->print);
     free(philo);
 }

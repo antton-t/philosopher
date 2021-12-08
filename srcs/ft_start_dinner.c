@@ -6,19 +6,31 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 14:57:15 by antton-t          #+#    #+#             */
-/*   Updated: 2021/12/06 15:36:57 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/12/08 14:51:06 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+int		ft_philo_check(t_ophi *philo)
+{
+	pthread_mutex_lock(&philo->time);
+	if (philo->unite->alive == 0)
+	{
+		pthread_mutex_unlock(&philo->time);
+		return (0);
+	}
+	pthread_mutex_unlock(&philo->time);
+	return (1);
+}
 
 void	*eatting(void *arg)
 {
 	t_ophi	*philo;
 
 	philo = (t_ophi *)arg;
-	usleep(10);
-	while (philo->full != 1  && philo->unite->alive != 0)
+//	usleep(10);
+	while (philo->full != 1  && ft_philo_check(philo))
 	{
 		if (philo->id_philo % 2 == 0)
 			ft_go_eat_even(philo);
@@ -29,6 +41,8 @@ void	*eatting(void *arg)
 		ft_go_sleep(philo);
 		ft_go_think(philo);	
 	}
+//	printf("Philo %i id et alive %i",philo->id_philo, philo->unite->alive);
+	
 	return (NULL);
 }
 
@@ -54,7 +68,7 @@ void	ft_pthread_create(t_philo *philo)
 int	ft_start_dinner(t_philo *philo)
 {
 	ft_pthread_create(philo);
-	if (ft_check_alive(philo) == 1)
+	if (ft_check_alive(philo) == 0)
 		return (0);
 	return (1);
 }
