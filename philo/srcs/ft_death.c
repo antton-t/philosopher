@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_death.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/13 13:05:09 by antton-t          #+#    #+#             */
-/*   Updated: 2021/12/02 18:06:29 by antton-t         ###   ########.fr       */
+/*   Created: 2021/12/10 20:05:27 by antton-t          #+#    #+#             */
+/*   Updated: 2021/12/10 20:05:28 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int main(int argc, char **argv)
+int	ft_check_death(t_ophi *philo)
 {
-	if (argc == 5 || argc == 6)
+	long long	time;
+
+	pthread_mutex_lock(&philo->time);
+	time = ft_get_time_of_start();
+	if (time - philo->last_food_time > philo->unite->time_to_die)
 	{
-		if (ft_check_parse_argv(argv) == 0)
-		{
-			printf("Error parsing argument\n");
-			return (0);
-		}
-		ft_start_philo(argv, argc);
+		philo->unite->alive = 0;
+		pthread_mutex_unlock(&philo->time);
+		return (1);
 	}
-	else
-		printf("Error arguments \n");
+	pthread_mutex_unlock(&philo->time);
 	return (0);
 }

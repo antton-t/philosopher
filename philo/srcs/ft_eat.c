@@ -6,7 +6,7 @@
 /*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 18:21:08 by antton-t          #+#    #+#             */
-/*   Updated: 2021/12/08 14:51:08 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/12/10 17:34:46 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_eat(t_ophi *philo);
 
 void	ft_go_eat_even(t_ophi *philo)
 {
+	usleep(100);
 	if (philo->meal_left != 0)
 	{
 		if (pthread_mutex_lock(&philo->fork_left) == 0)

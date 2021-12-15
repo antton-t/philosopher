@@ -6,7 +6,7 @@
 /*   By: antton-t <antton-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:44:33 by antton-t          #+#    #+#             */
-/*   Updated: 2021/12/06 15:50:43 by antton-t         ###   ########.fr       */
+/*   Updated: 2021/12/08 15:11:39 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,10 +92,4 @@ void	ft_create_message(t_ophi *philo, int i)
 	ft_create_sentence(sentence, i, philo, time);
 	write (1, sentence, ft_strlen(sentence));
 	pthread_mutex_unlock(&philo->unite->print);
-}
-
-void	ft_print(int i)
-{
-	if (i == 1)
-		write(1, "Malloc error\n", 13);
 }

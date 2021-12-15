@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_alive.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antton-t <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: antton-t <antton-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 14:36:07 by antton-t          #+#    #+#             */
-/*   Updated: 2021/12/08 10:52:20 by antton-t         ###   ########.fr       */
+/*   Created: 2021/12/10 20:06:24 by antton-t          #+#    #+#             */
+/*   Updated: 2021/12/10 20:51:09 by antton-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,7 @@ int	ft_check_alive(t_philo *philo)
 				time = ft_get_time_of_start();
 				printf("%lld %i died\n", time - philo->time,
 					philo->phi[i].id_philo);
-//                pthread_mutex_unlock(&philo->print);
-				return (1);
+				return (0);
 			}
 			i++;
 		}
