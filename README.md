@@ -1,4 +1,5 @@
 🙏 PHILOSOPHER PROJECT 🙏
+
 Description du projet 📑
 Le projet est une introduction au multithreading et aux mutex. L' idée est que des philosophes se réunissent autour d'une table. Ils peuvent manger, dormir, et penser. Pour manger, il leur faut 2 fourchettes, sachant qu'il y a une fourchette entre chaque philosopher (qui sont par ailleurs des mutex) . Le philosophe mange [TTE], se repose [TTS] puis pense tant qu'il n'y a pas suffisamment de fourchettes disponibles (2) pour qu'il recommence à manger. Si le philo n'a pas recommencé à manger avant, il meurt, I' objectif étant qu' ils vivent le plus longtemps possible, en fonction des paramèt res renseignés lors du lancement du programme.
 
